@@ -14,7 +14,7 @@ const step1 = createStep({
     await writer.write({ type: 'text', content: `Begining execution of step 1` });
 
     if (!resumeData?.value) {
-      await writer.write({ type: 'text', content: 'Started step 1' });
+      await writer.write({ type: 'text', content: 'Suspending step 1' });
       return await suspend({});
     }
 
@@ -30,7 +30,7 @@ export const mainWorkflow = createWorkflow({
   id: 'mainWorkflow',
   inputSchema: z.object({}),
   outputSchema: z.object({
-    text: z.string(),
+    value: z.string(),
   }),
 })
   .then(step1)

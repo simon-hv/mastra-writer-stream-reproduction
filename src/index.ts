@@ -12,8 +12,10 @@ for await (const event of stream.fullStream) {
   console.debug(event);
 }
 
-const resumedStream = run.resumeStreamVNext({ resumeData: { value: 'left' } as any });
+if (stream.status === 'suspended') {
+  const resumedStream = run.resumeStreamVNext({ resumeData: { value: 'left' } as any });
 
-for await (const event of resumedStream.fullStream) {
-  console.debug(event);
+  for await (const event of resumedStream.fullStream) {
+    console.debug(event);
+  }
 }

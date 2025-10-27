@@ -1,7 +1,7 @@
 import { Mastra } from '@mastra/core/mastra';
 import { LibSQLStore } from '@mastra/libsql';
 import { PinoLogger } from '@mastra/loggers';
-import { mainWorkflow } from './workflows/nested-workflow';
+import { mainWorkflow } from './workflows/simple-workflow';
 
 export const mastra = new Mastra({
   workflows: { mainWorkflow },
